@@ -3,24 +3,21 @@ package grpc
 import (
 	"context"
 
-	"google.golang.org/grpc"
+	 "google.golang.org/grpc"
 )
 
-func unaryClientInterceptor(
-	ctx context.Context,
-	method string,
-	req interface{},
-	reply interface{},
-	cc *grpc.ClientConn,
-	invoker grpc.UnaryInvoker,
-	opts ...grpc.CallOption) (err error) {
-	// get mode from Context
+
+
+
+func VcrUnaryServerInterceptor(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp interface{}, err error) {
 	vcrMode := ctx.Value("VCR_MODE")
 	switch vcrMode {
 	case "off":
-		//err = invoker(ctx, method, req, reply, cc, opts)
+		resp, err = handler(ctx, req)
 	case "record":
-
+		resp, err = handler(ctx, req)
+		recording := NewGrpcRecording(info.FullMethod, req, resp, err)
+		recording.ToYaml()
 	case "test":
 	}
 	return
