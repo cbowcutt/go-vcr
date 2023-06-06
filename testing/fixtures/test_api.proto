@@ -1,9 +1,11 @@
 syntax = "proto3";
 package cbowcutt.govcr.testpackage.api;
 
-option go_package = "./"; // golang
+import "google/protobuf/wrappers.proto";
+option go_package = "./;fixtures"; // golang
 
 message TestRecord {
     string key = 1;
     string value = 2;
+    google.protobuf.StringValue googleString = 3;
 }
