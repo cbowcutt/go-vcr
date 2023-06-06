@@ -8,4 +8,6 @@ message TestRecord {
     string key = 1;
     string value = 2;
     google.protobuf.StringValue googleString = 3;
+    int32 someNumber = 4;
+    google.protobuf.Int32Value googleNumber = 5;
 }
