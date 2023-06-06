@@ -1,35 +1,22 @@
 package grpc
 
-import(
-	"encoding/json"
-	"gopkg.in/yaml.v3"
-	"google.golang.org/grpc"
-	"google.golang.org/protobuf/proto"
-	"google.golang.org/protobuf/encoding/protojson"
+import (
+	"github.com/cbowcutt/go-vcr/utils"
 )
 
-type GrpcRecording struct{
-	rawRequest interface{}
+type GrpcRecording struct {
+	rawRequest  interface{}
 	RawResponse interface{}
 }
 
 func (g *GrpcRecording) ToYaml() error {
-	reqJsonString, err := convertToJson(g.rawRequest)
+	reqJsonString, err := utils.ProtoToJson(g.rawRequest)
 	if err != nil {
 		return err
 	}
-	respJsonString, err := convertToJson(g.rawREsponse)
+	respJsonString, err := utils.ProtoToJson(g.rawResponse)
 	if err != nil {
 		return err
 	}
 	// return yaml struct with request and response
-}
-
-func convertToJson(r interface{}) (string, error) {
-	reqProto := g.RawRequest.(proto.Message)
-	jsonBytes, err := protojson.Marshal(reqProto)
-	if err != nil {
-		return nil, err
-	}
-	return string(jsonBytes), err
 }

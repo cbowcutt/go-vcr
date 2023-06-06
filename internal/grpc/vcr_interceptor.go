@@ -1,10 +1,10 @@
 package grpc
 
-import(
+import (
 	"context"
+
 	"google.golang.org/grpc"
 )
-
 
 func unaryClientInterceptor(
 	ctx context.Context,
@@ -14,16 +14,16 @@ func unaryClientInterceptor(
 	cc *grpc.ClientConn,
 	invoker grpc.UnaryInvoker,
 	opts ...grpc.CallOption) error {
-		// get mode from Context
-		vcrMode := ctx.Value("VCR_MODE")
-		switch vcrMode {
-		case "off":
-			err := invoker(ctx, method, req, reploy, cc, opts)
-		case "record":
-			
-		case "test":
-		}
+	// get mode from Context
+	vcrMode := ctx.Value("VCR_MODE")
+	switch vcrMode {
+	case "off":
+		err := invoker(ctx, method, req, reploy, cc, opts)
+	case "record":
 
-		return err
+	case "test":
+	}
+
+	return err
 
 }
