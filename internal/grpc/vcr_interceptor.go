@@ -13,17 +13,15 @@ func unaryClientInterceptor(
 	reply interface{},
 	cc *grpc.ClientConn,
 	invoker grpc.UnaryInvoker,
-	opts ...grpc.CallOption) error {
+	opts ...grpc.CallOption) (err error) {
 	// get mode from Context
 	vcrMode := ctx.Value("VCR_MODE")
 	switch vcrMode {
 	case "off":
-		err := invoker(ctx, method, req, reploy, cc, opts)
+		//err = invoker(ctx, method, req, reply, cc, opts)
 	case "record":
 
 	case "test":
 	}
-
-	return err
-
+	return
 }
