@@ -1,0 +1,23 @@
+syntax = "proto3";
+package cbowcutt.govcr.time_server.api;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+option go_package = "./;api"; // golang
+
+message GetTimeRequest {
+  google.protobuf.StringValue timezone = 1;
+
+}
+
+message GetTimeResponse{
+  google.protobuf.Timestamp time = 1;
+  google.protobuf.StringValue local_time = 2;
+}
+
+
+
+
+service TimeService {
+  rpc GetTime(GetTimeRequest) returns (GetTimeResponse);
+}
