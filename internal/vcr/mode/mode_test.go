@@ -7,7 +7,7 @@ import (
 
 func Test_GetVcrMode_default(t *testing.T) {
 	mode := GetVcrMode()
-	assert.Equal(t, VCR_OFF, *mode)
+	assert.Equal(t, OFF, *mode)
 }
 
 func Test_SetVcrMode_VCR_RECORD(t *testing.T) {
@@ -15,15 +15,15 @@ func Test_SetVcrMode_VCR_RECORD(t *testing.T) {
 	err := SetVcrMode(&newMode)
 	assert.Nil(t, err)
 	actualMode := GetVcrMode()
-	assert.Equal(t, newMode, *actualMode )
+	assert.Equal(t, newMode, *actualMode)
 }
 
 func Test_SetVcrMode_VCR_OFF(t *testing.T) {
-	newMode := VCR_OFF
+	newMode := OFF
 	err := SetVcrMode(&newMode)
 	assert.Nil(t, err)
 	actualMode := GetVcrMode()
-	assert.Equal(t, newMode, *actualMode )
+	assert.Equal(t, newMode, *actualMode)
 }
 
 func Test_SetVcrMode_VCR_TEST(t *testing.T) {
@@ -31,7 +31,7 @@ func Test_SetVcrMode_VCR_TEST(t *testing.T) {
 	err := SetVcrMode(&newMode)
 	assert.Nil(t, err)
 	actualMode := GetVcrMode()
-	assert.Equal(t, newMode, *actualMode )
+	assert.Equal(t, newMode, *actualMode)
 }
 
 func Test_SetVcrMode_Error(t *testing.T) {
@@ -39,5 +39,5 @@ func Test_SetVcrMode_Error(t *testing.T) {
 	err := SetVcrMode(&newMode)
 	assert.Nil(t, err)
 	actualMode := GetVcrMode()
-	assert.Equal(t, newMode, *actualMode )
+	assert.Equal(t, newMode, *actualMode)
 }

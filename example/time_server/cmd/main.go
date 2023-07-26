@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"github.com/cbowcutt/go-vcr/example/internal"
 	"github.com/cbowcutt/go-vcr/example/time_server/api"
+	grpc2 "github.com/cbowcutt/go-vcr/internal/grpc"
+	"github.com/cbowcutt/go-vcr/internal/vcr/mode"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/keepalive"
 	"net"
@@ -14,6 +16,11 @@ import (
 )
 
 func main() {
+	m := mode.RECORD
+	err := mode.SetVcrMode(&m)
+	if err != nil {
+		panic(err)
+	}
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", 8080))
 	if err != nil {
 		fmt.Errorf("%s", err.Error())
@@ -27,6 +34,7 @@ func main() {
 			PermitWithoutStream: true,
 		}),
 	}
+	serverOptions = append(serverOptions, grpc.UnaryInterceptor(grpc2.UnaryServerMixtapeInterceptor()))
 
 	s := grpc.NewServer(serverOptions...)
 	api.RegisterTimeServiceServer(s, &internal.TimeHandler{})

@@ -8,9 +8,9 @@ import (
 type VCRMode string
 
 const (
-	VCR_OFF    VCRMode = "off"
-	VCR_RECORD VCRMode = "record"
-	VCR_TEST   VCRMode = "test"
+	OFF      VCRMode = "off"
+	RECORD   VCRMode = "record"
+	PLAYBACK VCRMode = "playback"
 )
 
 var lock = &sync.Mutex{}
@@ -22,7 +22,7 @@ func GetVcrMode() *VCRMode {
 		lock.Lock()
 		defer lock.Unlock()
 		if currentVcrMode == nil {
-			defaultMode := VCR_OFF
+			defaultMode := OFF
 			currentVcrMode = &defaultMode
 		}
 	}
@@ -41,13 +41,13 @@ func SetVcrMode(newMode *VCRMode) error {
 }
 
 func validateVcrMode(mode *VCRMode) error {
-	if *mode != VCR_OFF {
+	if *mode != OFF {
 		return nil
 	}
-	if *mode != VCR_TEST {
+	if *mode != PLAYBACK {
 		return nil
 	}
-	if *mode != VCR_RECORD {
+	if *mode != RECORD {
 		return nil
 	}
 	return errors.New("vcr mode needs to be 'off', 'test' or 'record'")

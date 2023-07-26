@@ -24,11 +24,12 @@ func Test_Mixtape_ToYaml(t *testing.T) {
 		GoogleNumber: &wrapperspb.Int32Value{Value: 42},
 	}
 
-	testTrack, err := track.NewGrpcTrack("this.is.method", protoRequest, protoResponse, nil)
-	assert.Nil(t, err)
+	testTrack := track.NewGrpcTrack("this.is.method")
+	testTrack.SetGrpcRequestData(protoRequest)
+	testTrack.SetGrpcResponseData(protoResponse)
 
 	mixtape := Mixtape{
-		Intro: *testTrack,
+		Intro: testTrack,
 	}
 	toYaml, err := mixtape.ToYaml()
 	str := string(toYaml)

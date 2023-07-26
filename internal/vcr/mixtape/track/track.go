@@ -15,7 +15,7 @@ type GrpcTrackData struct {
 	Method   string      `yaml:"method"`
 	Request  interface{} `yaml:"request"`
 	Response interface{} `yaml:"response"`
-	err      error       `yaml:"err"`
+	Error    error       `yaml:"err"`
 }
 
 type HttpTrackData struct {
@@ -39,24 +39,35 @@ func NewHttpTrack(method string, url string, request string, response string, st
 	}, nil
 }
 
-func NewGrpcTrack(method string, request interface{}, response interface{}, err error) (*Track, error) {
-	requestJson, err := utils.ProtoToJson(request.(proto.Message))
-	if err != nil {
-		return nil, err
-	}
-	responseJson, err := utils.ProtoToJson(response.(proto.Message))
-	if err != nil {
-		return nil, err
-	}
+func NewGrpcTrack(method string) *Track {
 	return &Track{
 		Kind: "grpc",
 		Data: GrpcTrackData{
-			Method:   method,
-			Request:  requestJson,
-			Response: responseJson,
-			err:      err,
+			Method: method,
 		},
-	}, nil
+	}
+}
+
+func (t *Track) SetGrpcRequestData(request interface{}) error {
+	requestJson, err := utils.ProtoToJson(request.(proto.Message))
+	if err != nil {
+		return err
+	}
+	t.Data.(*GrpcTrackData).Request = requestJson
+	return nil
+}
+
+func (t *Track) SetGrpcResponseData(response interface{}) error {
+	responseJson, err := utils.ProtoToJson(response.(proto.Message))
+	if err != nil {
+		return err
+	}
+	t.Data.(*GrpcTrackData).Response = responseJson
+	return nil
+}
+
+func (t *Track) SetError(err error) {
+	t.Data.(*GrpcTrackData).Error = err
 }
 
 func (g *Track) Serialize() (string, error) {
