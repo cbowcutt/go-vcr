@@ -21,24 +21,26 @@ func GetMixtape() *Mixtape {
 	}
 	return mixtapeInstance
 }
+func (m *Mixtape) FromYaml(yamlBytes []byte) error {
+	yaml.Unmarshal(yamlBytes, m)
+	err := yaml.Unmarshal(yamlBytes, m)
+	if err != nil {
+		return err
+	}
+	err = m.Intro.Decode()
+	if err != nil {
+		return err
+	}
+	for _, track := range m.Tracks {
+		err = track.Decode()
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
 
 func (m *Mixtape) ToYaml() ([]byte, error) {
-	//introYaml, err := m.Intro.ToYaml()
-	//if err != nil {
-	//	return nil, err
-	//}
-	////trackYamls := make([][]byte, 0)
-	////
-	////for _, t := range m.tracks {
-	////	trackYaml, err := t.ToYaml()
-	////	if err != nil {
-	////		return nil, err
-	////	}
-	////	trackYamls = append(trackYamls, trackYaml)
-	////}
-	//yamlStruct := mixtapeYaml{
-	//	Intro: introYaml,
-	//}
 	return yaml.Marshal(m)
 }
 

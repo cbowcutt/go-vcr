@@ -32,7 +32,24 @@ func Test_Mixtape_ToYaml(t *testing.T) {
 		Intro: testTrack,
 	}
 	toYaml, err := mixtape.ToYaml()
-	str := string(toYaml)
 	assert.Nil(t, err)
-	assert.Equal(t, "intro:\n    kind: grpc\n    data:\n        method: this.is.method\n        request: '{\"key\":\"Hello\",\"value\":\"Friend\",\"googleString\":\"someString\",\"someNumber\":42,\"googleNumber\":42}'\n        response: '{\"key\":\"Hello\",\"value\":\"Friend\",\"googleString\":\"someString\",\"someNumber\":42,\"googleNumber\":42}'\n", str)
+	actualMixtape := Mixtape{}
+	actualMixtape.FromYaml(toYaml)
+	assert.Equal(t, "grpc", actualMixtape.Intro.Kind)
+	grpcData := actualMixtape.Intro.Data.(track.GrpcTrackData)
+	assert.Equal(t, "this.is.method", grpcData.Method)
+
+	requestData := grpcData.Request.(map[string]interface{})
+	assert.Equal(t, "Hello", requestData["key"])
+	assert.Equal(t, "Friend", requestData["value"])
+	assert.Equal(t, float64(42), requestData["googleNumber"])
+	assert.Equal(t, float64(42), requestData["someNumber"])
+	assert.Equal(t, "someString", requestData["googleString"])
+
+	responseData := grpcData.Response.(map[string]interface{})
+	assert.Equal(t, "Hello", responseData["key"])
+	assert.Equal(t, "Friend", responseData["value"])
+	assert.Equal(t, float64(42), responseData["googleNumber"])
+	assert.Equal(t, float64(42), responseData["someNumber"])
+	assert.Equal(t, "someString", responseData["googleString"])
 }

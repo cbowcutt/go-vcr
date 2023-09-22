@@ -1,0 +1,8 @@
+intro:
+    kind: grpc
+    data:
+        method: /cbowcutt.govcr.time_server.api.TimeService/GetTime
+        request: '{"timezone":"America/Los_Angeles"}'
+        response: '{"time":"2023-07-26T01:55:56.490212Z", "localTime":"2023-07-25 18:55:56.490212 -0700 PDT\n"}'
+        err: null
+tracks: []

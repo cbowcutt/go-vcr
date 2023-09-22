@@ -8,6 +8,7 @@ import (
 	"github.com/cbowcutt/go-vcr/internal/vcr/mode"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/keepalive"
+	"google.golang.org/grpc/reflection"
 	"net"
 	"os"
 	"os/signal"
@@ -37,6 +38,8 @@ func main() {
 	serverOptions = append(serverOptions, grpc.UnaryInterceptor(grpc2.UnaryServerMixtapeInterceptor()))
 
 	s := grpc.NewServer(serverOptions...)
+	reflection.Register(s)
+
 	api.RegisterTimeServiceServer(s, &internal.TimeHandler{})
 	shutdownGracePeriod := time.Minute * 60
 	go func() {

@@ -1,51 +1,143 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="7568f251-ec3b-486f-bf1e-c2b1b550f870" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/internal/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/example/internal/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/time_server/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/example/time_server/cmd/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/http/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/http/handler.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/utils/proto_to_json.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/utils/proto_to_json.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/utils/proto_to_json_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/utils/proto_to_json_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/vcr/mixtape/mixtape.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/vcr/mixtape/mixtape.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/vcr/mixtape/mixtape_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/vcr/mixtape/mixtape_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/vcr/mixtape/track/track.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/vcr/mixtape/track/track.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
   <component name="GOROOT" url="file:///usr/local/go" />
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/go.mod" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/internal/grpc/vcr_interceptor.go" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/internal/utils/proto_to_json_test.go" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/internal/vcr/mode/mode.go" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/internal/vcr/mode/mode_test.go" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/internal/vcr/recording/path.go" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/testing/fixtures/test_api.pb.go" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/testing/fixtures/test_api.proto" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file:///usr/local/go/src/encoding/json/stream.go" root0="SKIP_INSPECTION" />
+    <setting file="file:///usr/local/go/src/io/io.go" root0="SKIP_INSPECTION" />
+    <setting file="file:///usr/local/go/src/net/http/request.go" root0="SKIP_INSPECTION" />
+    <setting file="file:///usr/local/go/src/runtime/panic.go" root0="SKIP_INSPECTION" />
+    <setting file="file:///usr/local/go/src/sync/waitgroup.go" root0="SKIP_INSPECTION" />
+    <setting file="file:///usr/local/go/src/testing/testing.go" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2QoJQ060CwGQQ1jrbzzNZudDrWW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="go.import.settings.migrated" value="true" />
-    <property name="go.sdk.automatically.set" value="true" />
-    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/chris.bowcutt/go-vcr&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/internal/vcr/mode" />
+    </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Test_ProtoToJson in github.com/cbowcutt/go-vcr/internal/utils" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Build.go build github.com/cbowcutt/go-vcr/example/time_server/cmd">
+    <configuration name="go build github.com/cbowcutt/go-vcr/example/time_server/cmd" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="go-vcr" />
-      <working_directory value="$PROJECT_DIR$/internal/utils" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/cbowcutt/go-vcr/example/time_server/cmd" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/example/time_server/cmd/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_Handler_RoundTrip_Record in github.com/cbowcutt/go-vcr/internal/http" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="go-vcr" />
+      <working_directory value="$PROJECT_DIR$/internal/http" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="github.com/cbowcutt/go-vcr/internal/utils" />
+      <package value="github.com/cbowcutt/go-vcr/internal/http" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTest_ProtoToJson\E$" />
+      <pattern value="^\QTest_Handler_RoundTrip_Record\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_Mixtape_ToYaml in github.com/cbowcutt/go-vcr/internal/vcr/mixtape" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="go-vcr" />
+      <working_directory value="$PROJECT_DIR$/internal/vcr/mixtape" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/cbowcutt/go-vcr/internal/vcr/mixtape" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTest_Mixtape_ToYaml\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go test github.com/cbowcutt/go-vcr/internal/vcr/mode" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="go-vcr" />
+      <working_directory value="$PROJECT_DIR$/internal/vcr/mode" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/cbowcutt/go-vcr/internal/vcr/mode" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go test internal" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="go-vcr" />
+      <working_directory value="$PROJECT_DIR$/internal" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="DIRECTORY" />
+      <package value="github.com/cbowcutt/go-vcr" />
+      <directory value="$PROJECT_DIR$/internal" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.Test_ProtoToJson in github.com/cbowcutt/go-vcr/internal/utils" />
+        <item itemvalue="Go Build.go build github.com/cbowcutt/go-vcr/example/time_server/cmd" />
+        <item itemvalue="Go Test.Test_Mixtape_ToYaml in github.com/cbowcutt/go-vcr/internal/vcr/mixtape" />
+        <item itemvalue="Go Test.go test internal" />
+        <item itemvalue="Go Test.Test_Handler_RoundTrip_Record in github.com/cbowcutt/go-vcr/internal/http" />
+        <item itemvalue="Go Test.go test github.com/cbowcutt/go-vcr/internal/vcr/mode" />
       </list>
     </recent_temporary>
   </component>
@@ -65,6 +157,72 @@
     </option>
   </component>
   <component name="VgoProject">
-    <integration-enabled>true</integration-enabled>
+    <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/utils/proto_to_json_test.go</url>
+          <line>10</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/example/time_server/cmd/main.go</url>
+          <line>65</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/vcr/mixtape/mixtape.go</url>
+          <line>80</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/grpc/vcr_interceptor.go</url>
+          <line>40</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/vcr/mixtape/track/track.go</url>
+          <line>39</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/http/handler_test.go</url>
+          <line>47</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/http/handler.go</url>
+          <line>45</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/http/handler.go</url>
+          <line>63</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/vcr/mixtape/mixtape.go</url>
+          <line>29</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/vcr/mixtape/track/track.go</url>
+          <line>101</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/vcr/mixtape/mixtape_test.go</url>
+          <line>44</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/vcr/mixtape/track/track.go</url>
+          <line>59</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

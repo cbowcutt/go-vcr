@@ -16,10 +16,7 @@ func UnaryServerMixtapeInterceptor() grpc.UnaryServerInterceptor {
 			resp, err = handler(ctx, req)
 		case mode.RECORD:
 			tape := &mixtape.Mixtape{
-				Intro: &track.Track{
-					Kind: "grpc",
-					Data: &track.GrpcTrackData{Method: info.FullMethod},
-				},
+				Intro: track.NewGrpcTrack(info.FullMethod),
 			}
 			newContext := context.WithValue(ctx, "mixtape", tape)
 

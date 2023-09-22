@@ -1,14 +1,17 @@
 package track
 
 import (
+	"encoding/json"
+	"errors"
 	"github.com/cbowcutt/go-vcr/internal/utils"
 	"google.golang.org/protobuf/proto"
 	"gopkg.in/yaml.v3"
+	"strings"
 )
 
 type Track struct {
-	Kind string      `yaml:"kind"`
-	Data interface{} `yaml:"data"`
+	Kind string `yaml:"kind"`
+	Data any    `yaml:"data"`
 }
 
 type GrpcTrackData struct {
@@ -19,20 +22,22 @@ type GrpcTrackData struct {
 }
 
 type HttpTrackData struct {
-	Method     string      `yaml:"method"`
-	Url        string      `yaml:"url"`
-	Request    interface{} `yaml:"request"`
-	Response   interface{} `yaml:"response"`
-	StatusCode int         `yaml:"status_code"`
+	Method     string              `yaml:"method"`
+	Url        string              `yaml:"url"`
+	Query      map[string][]string `yaml:"query"`
+	Request    interface{}         `yaml:"request"`
+	Response   interface{}         `yaml:"response"`
+	StatusCode int                 `yaml:"status_code"`
 }
 
-func NewHttpTrack(method string, url string, request string, response string, statusCode int) (*Track, error) {
+func NewHttpTrack(method string, url string, query map[string][]string, request string, response string, statusCode int) (*Track, error) {
 	return &Track{
 		Kind: "http",
 		Data: HttpTrackData{
 			Method:     method,
 			Url:        url,
 			Request:    request,
+			Query:      query,
 			Response:   response,
 			StatusCode: statusCode,
 		},
@@ -42,7 +47,7 @@ func NewHttpTrack(method string, url string, request string, response string, st
 func NewGrpcTrack(method string) *Track {
 	return &Track{
 		Kind: "grpc",
-		Data: GrpcTrackData{
+		Data: &GrpcTrackData{
 			Method: method,
 		},
 	}
@@ -53,7 +58,10 @@ func (t *Track) SetGrpcRequestData(request interface{}) error {
 	if err != nil {
 		return err
 	}
-	t.Data.(*GrpcTrackData).Request = requestJson
+	data := t.Data.(*GrpcTrackData)
+
+	data.Request = requestJson
+	t.Data = data
 	return nil
 }
 
@@ -62,7 +70,9 @@ func (t *Track) SetGrpcResponseData(response interface{}) error {
 	if err != nil {
 		return err
 	}
-	t.Data.(*GrpcTrackData).Response = responseJson
+	data := t.Data.(*GrpcTrackData)
+	data.Response = responseJson
+	t.Data = data
 	return nil
 }
 
@@ -70,16 +80,65 @@ func (t *Track) SetError(err error) {
 	t.Data.(*GrpcTrackData).Error = err
 }
 
-func (g *Track) Serialize() (string, error) {
-	bytes, err := yaml.Marshal(g)
+func (t *Track) Serialize() (string, error) {
+	bytes, err := yaml.Marshal(t)
 	if err != nil {
 		return "", err
 	}
 	return string(bytes), err
 }
 
-//// filename will be <recording-path>/<g.Method>_n.yml,
-//// if filename exists, filename will be <recording-path>/<g.Method>_n.yml, starting with 0
-//func (g *Track) WriteToFile() error {
-//	os.WriteFile(g.method + ".yml")
-//}
+func (t *Track) Decode() error {
+	dataMap := t.Data.(map[string]interface{})
+	if strings.ToLower(t.Kind) == "grpc" {
+		grpcData := GrpcTrackData{}
+		if dataMap["method"] != nil {
+			grpcData.Method = dataMap["method"].(string)
+		}
+		if dataMap["request"] != nil {
+			dataString := dataMap["request"].(string)
+			request := make(map[string]interface{})
+			err := json.Unmarshal([]byte(dataString), &request)
+			if err != nil {
+				return err
+			}
+			grpcData.Request = request
+		}
+		if dataMap["response"] != nil {
+			dataString := dataMap["response"].(string)
+			response := make(map[string]interface{})
+			err := json.Unmarshal([]byte(dataString), &response)
+			if err != nil {
+				return err
+			}
+			grpcData.Response = response
+		}
+		if dataMap["error"] != nil {
+			grpcData.Error = errors.New(dataMap["error"].(string))
+		}
+		t.Data = grpcData
+	}
+	if strings.ToLower(t.Kind) == "http" {
+		httpData := HttpTrackData{}
+		if dataMap["method"] != nil {
+			httpData.Method = dataMap["method"].(string)
+		}
+		if dataMap["request"] != nil {
+			httpData.Request = dataMap["request"].(map[string]interface{})
+		}
+		if dataMap["response"] != nil {
+			httpData.Response = dataMap["response"].(map[string]interface{})
+		}
+		if dataMap["status_code"] != nil {
+			httpData.StatusCode = dataMap["status_code"].(int)
+		}
+		if dataMap["url"] != nil {
+			httpData.Url = dataMap["url"].(string)
+		}
+		if dataMap["query"] != nil {
+			httpData.Query = dataMap["query"].(map[string][]string)
+		}
+		t.Data = httpData
+	}
+	return nil
+}
